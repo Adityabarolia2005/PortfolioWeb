@@ -1,0 +1,28 @@
+.smallHeadline{
+	color: aliceblue;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	margin-top: 0.5rem;
+}
+
+.bigHeadline{
+color: aliceblue;
+font-size: 6rem; 
+line-height: 1; 
+font-weight: 900;
+}
+
+.custom-button {
+  margin: 1.5rem; 
+  padding: 0.5rem 1rem; 
+  border-radius: 0.375rem; 
+  background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff; 
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.custom-button:hover {
+  background-color: rgba(255, 255, 255, 0.3); 
+  transform: scale(1.1); 
+  box-shadow: 0 25px 50px -12px #111827; 
+}
