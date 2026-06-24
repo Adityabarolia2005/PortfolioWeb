@@ -1,16 +1,17 @@
-.smallHeadline{
-	color: aliceblue;
-	font-size: 1.5rem;
-	line-height: 2rem;
-	margin-top: 0.5rem;
+.smallHeadline {
+  color: aliceblue;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-top: 0.5rem;
 }
 
-.bigHeadline{
-color: aliceblue;
-font-size: 6rem; 
-line-height: 1; 
-font-weight: 900;
+.bigHeadline {
+  color: aliceblue;
+  font-size: 3.5rem;
+  line-height: 1;
+  font-weight: 900;
 }
+
 
 .custom-button {
   margin: 1.5rem; 

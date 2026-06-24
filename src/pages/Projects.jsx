@@ -8,11 +8,11 @@ export default function Projects(){
     {name : "Code Explainer" , des:"Paste any code snippet and get a plain-English explanation powered by OpenAI. Supports multiple languages." , tech:["React","Express","OpenAI API"]}
   ]
   return (
-    <section className='mt-6 w-full max-w-[782.075px] mx-auto' id='projects'>
-      <div className='mb-6'>
+    <section className='mt-6 w-full max-w-[782.075px] m-auto  px-4' id='projects'>
+      <div className='mb-6 m-auto'>
         <PageHeading>Projects</PageHeading>
       </div>
-      <div className='grid gap-5 sm:grid-cols-2 xl:grid-cols-3'>
+      <div className='grid gap-5 m-auto justify-items-center sm:grid-cols-2 xl:grid-cols-3'>
         {projects.map((item, index) => (
           <ProjectCard key={index} index={index + 1} name={item.name} des={item.des} tech={item.tech} />
         ))}
