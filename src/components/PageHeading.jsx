@@ -1,5 +1,5 @@
-export default function PageHeading({ children }) {
+export default function PageHeading({ children, className = '' }) {
   return (
-    <p className="text-3xl text-white gap-3 font-heading font-semibold">{children}</p>
+    <p className={`text-3xl text-white gap-3 font-heading font-semibold ${className}`}>{children}</p>
   )
 }

@@ -5,8 +5,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        'heroCard-m': '763px', 
-        'smallBreakPoint' : '607px'
+        'hero-point': '444px'
       },
     },
   },

@@ -27,9 +27,9 @@ const skills = [
 export default function Skills() {
   return (
     <section id="skills">
-      <div className='mt-6 max-w-[782.075px] w-full mx-auto px-4'>
-        <PageHeading>Skills</PageHeading>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-3 justify-items-center items-stretch z-0'>
+      <div className='mt-8 max-w-[1200px] w-full mx-auto h-auto px-4'>
+        <PageHeading className="text-center">Skills</PageHeading>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch z-0 '>
           {skills.map((item) => (
             <StrechedButton key={item.name} name={item.name} icons={item.icons} des={item.des} />
           ))}

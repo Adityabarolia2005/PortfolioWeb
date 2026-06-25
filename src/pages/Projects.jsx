@@ -8,8 +8,8 @@ export default function Projects(){
     {name : "Code Explainer" , des:"Paste any code snippet and get a plain-English explanation powered by OpenAI. Supports multiple languages." , tech:["React","Express","OpenAI API"]}
   ]
   return (
-    <section className='mt-6 w-full max-w-[782.075px] m-auto  px-4' id='projects'>
-      <div className='mb-6 m-auto'>
+    <section className='mt-6 w-full px-4 max-w-[1200px] mx-auto' id='projects'>
+      <div className='mb-6 m-auto w-auto text-center'>
         <PageHeading>Projects</PageHeading>
       </div>
       <div className='grid gap-5 m-auto justify-items-center sm:grid-cols-2 xl:grid-cols-3'>

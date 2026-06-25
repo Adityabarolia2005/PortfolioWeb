@@ -6,26 +6,26 @@ import { FaGithub } from "react-icons/fa";
 
 function LetsConnect() {
   return (
-    <section id="contacts" className="w-full max-w-[782.075px] mx-auto my-6 space-y-3 px-4">
-      <p className="text-md font-medium font-btn text-purple-950">// get in touch</p>
-      <PageHeading>Lets Connect</PageHeading>
-      <div className="flex flex-col md:flex-row w-full p-6 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-2xl shadow-slate-900/20 gap-8">
+    <section id="contacts" className="w-full max-w-[1200px] mx-auto my-6 space-y-4 px-4 h-auto ">
+
+      <PageHeading className="text-center ">Lets Connect</PageHeading>
+      <div className="flex flex-col  md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4">
         <div className="flex-1 text-center md:text-left">
-          <p className="text-3xl font-heading text-white">
+          <p className="text-3xl font-heading text-white  mb-3">
             Open to
             <br />
             Opportunities
           </p>
-          <Description className="max-w-xl">
+          <Description className="max-w-xl m-2">
             Currently looking for full-time roles and freelance projects. If you
             have an interesting project or opportunity, feel free to reach out!
           </Description>
 
-          <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
-            <button className="min-w-[181px] rounded-md bg-sky-500 px-4 py-3 text-white font-btn font-semibold hover:bg-sky-400 transition">
+          <div className="mt-6 flex  flex-row gap-4 justify-center">
+            <button className="sm: text-center w-[45%] rounded-md bg-sky-500 px-4 py-3 text-white font-btn font-semibold hover:bg-sky-400 transition">
               Email me
             </button>
-            <button className="min-w-[181px] rounded-md bg-white/10 text-white px-4 py-3 font-btn font-semibold hover:text-black transition">
+            <button className="sm:text-center w-[45%] rounded-md bg-white/10 text-white px-4 py-3 font-btn font-semibold hover:text-black transition">
               Download Resume
             </button>
           </div>

@@ -6,10 +6,10 @@
 }
 
 @theme {
-  --font-heading: "Anton", serif;
-  --font-btn: "Archivo Black", sans-serif;
-  --font-desc: "Nunito", sans-serif;
-
+  --font-heading: "Manrope", serif;
+  --font-btn: "Manrope", sans-serif;
+  --font-desc: "Manrope", sans-serif;
+  --m-mar: "8px";
   --color-primary: #a6c1ee;
   --color-secondary: #fbc2eb;
   --color-accent: #38bdf8;
@@ -34,7 +34,10 @@
   --spacing-front-script: 40px;
   --spacing-front-script-height: 50px;
 
-  
+  --breakpoint-hero-point:444px;
+  --breakpoint-letConnect-point:639px;
+  --breakpoint-nav:422px;
+  --breakpoint-hero:769px;
 }
 
 html {
@@ -46,13 +49,14 @@ html {
 }
 
 body {
-  margin: 0;
-  background: linear-gradient(
+  margin: 0 !important;
+  padding : 0;
+  background: linear-gradient( 
     135deg,
      #040212 0%,
      #0a0b24 45%,
     #140d2b 100%
-  );
+  ) !important;
 }
 
 .bg-gradient-theme {
@@ -115,9 +119,4 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.25);
-}
-
-@media (min-width: 444px) {
-    
-
 }

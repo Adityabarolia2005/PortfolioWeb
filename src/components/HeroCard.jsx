@@ -4,12 +4,12 @@ function HeroCard() {
     const des = "MERN stack developer building scalable web apps with clean code and great user experiences."
     
     return (
-    <div className='flex flex-col md:flex-row max-w-[782.075px] mx-auto h-auto md:h-[450px] mt-20 p-4 gap-10 md:gap-12' id="home">
+    <div className='flex flex-col text-center hero:text-start md:flex-row max-w-[1200px] mx-auto h-auto md:h-auto mt-20 p-4 gap-10 md:gap-12' id="home">
     
       <div className='flex-1'>
         <div className='max-w-full space-y-3'>
 
-          <p style={{ height: 'var(--front-script-height)', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className='bg-code-bg w-full rounded-md font-mono text-sm sm:text-base border border-white/5'>
+          <p style={{ height: 'var(--front-script-height)', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className='bg-code-bg w-full rounded-md font-mono text-sm sm:text-base border border-white/5 '>
             <span>
               <span className='text-primary font-bold'>const</span>
               <span className='text-secondary'> dev</span>
