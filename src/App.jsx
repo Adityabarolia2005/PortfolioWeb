@@ -6,7 +6,7 @@ import LetsConnect from "./pages/LetsConnect";
 
 function App() {
   return (
-    <div className=" w-full">
+    <div className=" w-full " id="Home">
       <Nav/>
       <HeroCard />
       <Skills/>

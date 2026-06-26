@@ -22,8 +22,8 @@ function HeroCard() {
           </p>
 
           <div className={`${styles.bigHeadline} font-heading space-y-2`}>
-            <p>Aditya</p>
-            <p>Barolia</p>
+            <h1>Aditya</h1>
+            <h1>Barolia</h1>
           </div>
 
           <p className={`${styles.smallHeadline} font-heading`}>
