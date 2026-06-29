@@ -27,7 +27,7 @@ const skills = [
 export default function Skills() {
   return (
     <section id="skills">
-      <div className='mt-8 max-w-[1200px] w-full mx-auto h-auto px-4'>
+      <div className='md:mt-8 max-w-[1200px] w-full mx-auto h-auto px-4'>
         <PageHeading className="text-center">Skills</PageHeading>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch z-0 '>
           {skills.map((item) => (

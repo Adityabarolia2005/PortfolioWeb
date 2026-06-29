@@ -3,6 +3,7 @@ import Nav from "./pages/Nav";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import LetsConnect from "./pages/LetsConnect";
+import Experience from "./pages/Experience";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Nav/>
       <HeroCard />
       <Skills/>
-      <Projects />
+      <Projects/>
+      <Experience/>
       <LetsConnect/>
     </div>
   );

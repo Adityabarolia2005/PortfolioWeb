@@ -38,6 +38,7 @@
   --breakpoint-letConnect-point:639px;
   --breakpoint-nav:422px;
   --breakpoint-hero:769px;
+  --breakdownpoint-slider:542px;
 }
 
 html {
@@ -57,6 +58,14 @@ body {
      #0a0b24 45%,
     #140d2b 100%
   ) !important;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden; /* Prevents annoying left-to-right page shaking */
+  
+  /* Forces iOS to use fast, native momentum physics instead of feeling "heavy" */
+  -webkit-overflow-scrolling: touch; 
 }
 
 .bg-gradient-theme {
@@ -87,6 +96,8 @@ body {
 .text-theme-highlight {
   color: var(--color-text-highlight);
 }
+
+
 
 .glass-card {
   background-color: var(--color-card-bg);
