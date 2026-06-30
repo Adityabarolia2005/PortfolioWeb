@@ -1,8 +1,7 @@
 import Description from '../components/Description'
-
 function ProjectCard({ index, name, des, tech = [] }) {
   return (
-    <div className='w-full  max-w-[1200px] h-full p-4 rounded-3xl glass-card glass-card-hover flex flex-col items-center gap-4 text-center'>
+    <div className='w-full  max-w-[1200px] h-full p-4 rounded-3xl glass-card glass-card-hover flex flex-col items-center gap-4 text-center' >
       {index && (
         <span className='text-center rounded-full bg-accent px-3 py-1 text-xs font-bold text-[#040212] shadow-sm shadow-accent/20'>
           #{index}

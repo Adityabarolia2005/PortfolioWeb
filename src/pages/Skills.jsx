@@ -10,7 +10,8 @@ import { FaCode } from "react-icons/fa6";
 import { RiClaudeLine } from "react-icons/ri";
 import StrechedButton from '../components/StrechedButton'
 import PageHeading from '../components/PageHeading'
-
+import { motion } from "framer-motion";
+import {fadeInAnimation}  from "./animation"
 
 const skills = [
   { name: 'Mongo DB', icons: [SiMongodb] , des :"Designing schemas, CRUD operations, and integrating with Mongoose in MERN projects." },
@@ -29,9 +30,16 @@ export default function Skills() {
     <section id="skills">
       <div className='md:mt-8 max-w-[1200px] w-full mx-auto h-auto px-4'>
         <PageHeading className="text-center">Skills</PageHeading>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch z-0 '>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch z-0  ' >
           {skills.map((item) => (
-            <StrechedButton key={item.name} name={item.name} icons={item.icons} des={item.des} />
+            <motion.div
+              key={item.name}
+              variants={fadeInAnimation}
+              initial="hidden"
+              whileInView="visible"
+            >
+              <StrechedButton name={item.name} icons={item.icons} des={item.des} />
+            </motion.div>
           ))}
         </div>
       </div>

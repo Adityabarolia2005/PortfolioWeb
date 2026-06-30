@@ -61,9 +61,6 @@ body {
 }
 
 body {
-  overflow-y: auto;
-  overflow-x: hidden; /* Prevents annoying left-to-right page shaking */
-  
   /* Forces iOS to use fast, native momentum physics instead of feeling "heavy" */
   -webkit-overflow-scrolling: touch; 
 }
@@ -131,3 +128,31 @@ body {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.25);
 }
+
+
+/* 1. Animation define karein
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+ 2. Initial state (hidden) 
+.reveal-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease-out;
+}
+
+ 3. Jab screen par aaye (active) 
+.reveal-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: fadeInSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}*/
+

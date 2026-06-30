@@ -3,10 +3,12 @@ import Description from "../components/Description";
 import { FaLinkedin } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
+import { fadeInAnimation } from "./animation";
+import { motion } from "framer-motion";
 
 function LetsConnect() {
   return (
-    <section id="contacts" className="w-full max-w-[1200px] mx-auto my-6 space-y-4 px-4 h-auto ">
+    <motion.section id="contacts" className="w-full max-w-[1200px] mx-auto my-6 space-y-4 px-4 h-auto " variants={fadeInAnimation} whileInView="visible" initial="hidden">
 
       <PageHeading className="text-center ">Lets Connect</PageHeading>
       <div className="flex flex-col  md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4">
@@ -54,7 +56,7 @@ function LetsConnect() {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

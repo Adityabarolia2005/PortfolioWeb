@@ -1,8 +1,11 @@
 import React from "react";
 import Slider from "../components/Slider";
 import PageHeading from "../components/PageHeading";
+import { fadeInAnimation } from "./animation";
+import { motion } from "framer-motion";
 
-function Experience() {
+export default function Experience() {
+
   const experienceData = [
     {
       logo: "🏆",
@@ -34,14 +37,14 @@ function Experience() {
     },
   ];
 
+  // ✅ return function ke ANDAR hai
   return (
-    <section className="mt-8 flex flex-col max-w-[1200px] w-full mx-auto px-4 justify-center">
-      <PageHeading className="text-center mb-6">Experience</PageHeading>
+    <motion.section className="mt-8 flex flex-col max-w-[1200px] w-full mx-auto justify-center  overflow-hidden px-4" variants={fadeInAnimation} whileInView="visible" initial="hidden" id="Experience">
+      <PageHeading className="text-center mb-6 px-4">Experience</PageHeading>
       <div className="w-full">
         <Slider items={experienceData} />
       </div>
-    </section>
+    </motion.section>
   );
-}
 
-export default Experience;
+} // ✅

@@ -1,5 +1,7 @@
 import ProjectCard from '../components/ProjectCard'
 import PageHeading from '../components/PageHeading'
+import  {fadeInAnimation}  from "./animation"
+import {motion} from "framer-motion"
 
 export default function Projects(){
   const projects = [
@@ -12,9 +14,11 @@ export default function Projects(){
       <div className='mb-6 m-auto w-auto text-center'>
         <PageHeading>Projects</PageHeading>
       </div>
-      <div className='grid gap-5 m-auto justify-items-center sm:grid-cols-2 xl:grid-cols-3'>
+      <div className='grid gap-5 m-auto justify-items-center sm:grid-cols-2 xl:grid-cols-3 '>
         {projects.map((item, index) => (
-          <ProjectCard key={index} index={index + 1} name={item.name} des={item.des} tech={item.tech} />
+          <motion.div variants={fadeInAnimation} initial="hidden" whileInView="visible" >
+            <ProjectCard index={index + 1} name={item.name} des={item.des} tech={item.tech} />
+          </motion.div>
         ))}
       </div>
     </section>
