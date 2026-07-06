@@ -1,10 +1,28 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import Slider from "../components/Slider";
 import PageHeading from "../components/PageHeading";
-import { fadeInAnimation } from "./animation";
-import { motion } from "framer-motion";
 
 export default function Experience() {
+  useEffect(() => {
+    const element = document.querySelectorAll(".dataSlider");
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry)=>{
+          if (entry.isIntersecting) {
+          entry.target.classList.add("fadeIn");
+          entry.target.classList.remove("fadeLeft");
+          observer.unobserve(entry.target);
+        }
+        }) 
+      },
+      { threshold: 0.15 }
+    );
+    element.forEach((ele)=>{observer.observe(ele);});
+    
+    return () => observer.disconnect();
+  }, []);
 
   const experienceData = [
     {
@@ -29,7 +47,6 @@ export default function Experience() {
           <li>Implemented efficient state management techniques to ensure seamless data flow and a better user experience.</li>
           <li>Optimized application performance through component reusability, code splitting, lazy loading, and rendering optimizations, resulting in faster page load times and improved responsiveness.</li>
           <li>Worked extensively with modern React, and frontend development best practices while gaining practical industry experience in debugging, version control, code reviews, and collaborative software development workflows.</li>
-          <li>Participated in daily team discussions, task planning, and feature implementation while adhering to clean coding standards and responsive design principles.</li>
           <li>Working on the company's new website and contributing to the frontend and the backend also.</li>
         </ol>
       ),
@@ -37,14 +54,17 @@ export default function Experience() {
     },
   ];
 
-  // ✅ return function ke ANDAR hai
+  // ✅ return function ke ANDAR hai variants={fadeInAnimation} whileInView="visible" viewport={{once:true , amount:0.1}} initial="hidden" 
   return (
-    <motion.section className="mt-8 flex flex-col max-w-[1200px] w-full mx-auto justify-center  overflow-hidden px-4" variants={fadeInAnimation} whileInView="visible" initial="hidden" id="Experience">
+    <section
+      className="  mt-8 flex flex-col max-w-[1200px] w-full mx-auto justify-center overflow-hidden px-4 scroll-mt-[80px]"
+      id="Experience"
+    >
       <PageHeading className="text-center mb-6 px-4">Experience</PageHeading>
-      <div className="w-full">
+      <div className="w-full dataSlider fadeLeft" >
         <Slider items={experienceData} />
       </div>
-    </motion.section>
+    </section>
   );
 
 } // ✅

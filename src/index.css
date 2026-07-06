@@ -1,14 +1,17 @@
 @import "tailwindcss";
+@import "@fontsource-variable/manrope";
 
 :root {
   --front-script: 40px;
-  --front-script-height: 50px;
+  --front-script-height: clamp(3rem, 10vw, 7.5rem);
 }
 
+ html { scroll-behavior: smooth; }  
+
 @theme {
-  --font-heading: "Manrope", serif;
-  --font-btn: "Manrope", sans-serif;
-  --font-desc: "Manrope", sans-serif;
+  --font-heading: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-btn: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-desc: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --m-mar: "8px";
   --color-primary: #a6c1ee;
   --color-secondary: #fbc2eb;
@@ -39,19 +42,13 @@
   --breakpoint-nav:422px;
   --breakpoint-hero:769px;
   --breakdownpoint-slider:542px;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-#root {
-  display: block !important;
+  --breakpoint-hero-full-screen:768px;
 }
 
 body {
   margin: 0 !important;
   padding : 0;
+  font-family: var(--font-heading);
   background: linear-gradient( 
     135deg,
      #040212 0%,
@@ -130,29 +127,95 @@ body {
 }
 
 
-/* 1. Animation define karein
-@keyframes fadeInSlideUp {
-  0% {
+@layer utilities {
+  .stagger-box {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
-  100% {
+
+  .show-box {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
+
+  .btnn {
+  transition:
+    transform .8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
+    opacity .8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+  will-change: transform, opacity;
 }
 
- 2. Initial state (hidden) 
-.reveal-hidden {
+.fadeLeft {
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.6s ease-out;
+  transform: translateX(-60px);
 }
 
- 3. Jab screen par aaye (active) 
-.reveal-active {
-  opacity: 1 !important;
-  visibility: visible !important;
-  animation: fadeInSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}*/
+.fadeIn {
+  opacity: 1;
+  transform: translateX(0);
+}
 
+.fadeRight {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
+    transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+}
+
+.projectCards{
+  transition:
+    opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
+    transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+}
+
+.dataSlider{
+  transition:
+    opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
+    transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+}
+
+.letContactClass{
+  transition:
+    opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
+    transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+}
+
+.container{
+    display:inline-block;
+}
+
+.typing{
+    width:0;
+    overflow:hidden;
+    white-space:nowrap;
+
+    border-right:3px solid white;
+
+    animation:
+    typing 3s steps(18) forwards,
+    cursor .7s step-end infinite;
+}
+
+@keyframes typing{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+@keyframes cursor{
+
+    50%{
+        border-color:transparent;
+    }
+
+}
+
+}

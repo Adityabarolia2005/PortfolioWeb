@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 
 function ScrollProgress() {
-  // Step 1: MotionValue — 0 to 100
+  
   const scrollProgress = useMotionValue(0);
 
   // Step 2: Optional — spring lagao smooth feel ke liye
@@ -43,8 +43,8 @@ function ScrollProgress() {
       style={{ width }}
       //       ↑
       //  live wire — string nahi, motionValue directly
-      className="fixed top-20 left-0 h-1 bg-btn-cta-bg z-50"
-      //         ↑ transition-[width] hata diya — Framer handle karega
+      className="fixed top-[72.8px] left-0 h-1 bg-btn-cta-bg z-40   shadow-[0_-1px_4px_rgba(255,255,255,0.8),0_-2px_10px_rgba(56,189,248,0.7)]"
+      //         ↑ transition-[width] hata diya — Framer handle karega 
     />
   );
 }

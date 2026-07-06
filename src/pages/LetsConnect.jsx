@@ -1,17 +1,35 @@
+import { useEffect } from "react";
 import PageHeading from "../components/PageHeading";
 import Description from "../components/Description";
 import { FaLinkedin } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
-import { fadeInAnimation } from "./animation";
-import { motion } from "framer-motion";
 
 function LetsConnect() {
+  useEffect(() => {
+    const el = document.querySelector(".letContactClass");
+    if (!el) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting){
+          entry.target.classList.add("fadeIn");
+          entry.target.classList.remove("fadeLeft");
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.section id="contacts" className="w-full max-w-[1200px] mx-auto my-6 space-y-4 px-4 h-auto " variants={fadeInAnimation} whileInView="visible" initial="hidden">
+    <section id="contacts" className="w-full max-w-[1200px] mx-auto my-6 space-y-4 px-4 h-auto ">
 
       <PageHeading className="text-center ">Lets Connect</PageHeading>
-      <div className="flex flex-col  md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4">
+      <div className="flex flex-col  md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4 fadeLeft letContactClass">
         <div className="flex-1 text-center md:text-left">
           <p className="text-3xl font-heading text-white  mb-3">
             Open to
@@ -24,12 +42,12 @@ function LetsConnect() {
           </Description>
 
           <div className="mt-6 flex  flex-row gap-4 justify-center">
-            <button className="sm: text-center w-[45%] rounded-md bg-sky-500 px-4 py-3 text-white font-btn font-semibold hover:bg-sky-400 transition">
+            <button className="sm: text-center w-[45%] rounded-md bg-sky-500 px-4 py-3 text-white font-btn font-semibold hover:bg-sky-400 transition cursor-pointer">
               Email me
             </button>
-            <button className="sm:text-center w-[45%] rounded-md bg-white/10 text-white px-4 py-3 font-btn font-semibold hover:text-black transition">
+            <a download="AdityaBaroliaResume2.pdf" href="/AdityaBaroliaResume2.pdf" className="sm:text-center w-[45%] rounded-md bg-white/10 text-white px-4 py-3 font-btn font-semibold hover:text-black transition cursor-pointer">
               Download Resume
-            </button>
+            </a>
           </div>
         </div>
         <div className="flex-1 flex items-center justify-center md:justify-end gap-4">
@@ -56,7 +74,7 @@ function LetsConnect() {
           </a>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 
