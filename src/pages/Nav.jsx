@@ -108,15 +108,16 @@ export default function Nav() {
 
       {/* ── Mobile Dropdown ── */}
 
-      {isOpen && (
-        <AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isOpen && (
           <motion.div
+            key="mobile-nav"
             initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            ref={dropdownRef} // ✅ dropdownRef
-            className="md:hidden flex flex-col text-center absolute  left-4 right-4 gap-1 p-4 z-50 bg-slate-950/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl"
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 60 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            ref={dropdownRef}
+            className="md:hidden flex flex-col text-center absolute left-4 right-4 gap-1 p-4 z-50 bg-slate-950/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl"
           >
             {nav2.map((item, index) => (
               <a
@@ -129,8 +130,8 @@ export default function Nav() {
               </a>
             ))}
           </motion.div>
-        </AnimatePresence>
-      )}
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

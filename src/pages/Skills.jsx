@@ -55,39 +55,41 @@ const skills = [
 ];
 
 export default function Skills() {
-  useEffect(() => {
-    const boxes = document.querySelectorAll(".btnn");
+  const parentSkillRef = useRef(null);
 
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("fadeLeft");
-            entry.target.classList.add("fadeIn");
-          } else {
-            entry.target.classList.remove("fadeIn");
-            entry.target.classList.add("fadeLeft");
-          }
-        });
+        const parent = entries[0];
+        if (parent.isIntersecting) {
+          const boxes = parentSkillRef.current.querySelectorAll(".stagger-box");
+          boxes.forEach((box, index) => {
+            box.style.transitionDelay = `${index * 0.12}s`;
+            box.classList.add("show-box");
+          });
+          observer.unobserve(parentSkillRef.current);
+        }
       },
-      { rootMargin: "-100px 0px -80px 0px", threshold: 0.2 },
+      { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
     );
 
-    boxes.forEach((box) => {
-      observer.observe(box);
-    });
-
+    if (parentSkillRef.current) {
+      observer.observe(parentSkillRef.current);
+    }
     return () => observer.disconnect();
   }, []);
 
   return (
     <section id="skills" className="scroll-mt-[80px]">
-      <div className="md:mt-8 max-w-[1200px] w-full mx-auto h-auto px-4">
-        <PageHeading className="text-center">Skills</PageHeading>
+      <div
+        className="md:mt-8 max-w-[1200px] w-full mx-auto h-auto px-4"
+        ref={parentSkillRef}
+      >
+        <PageHeading className="text-center stagger-box">Skills</PageHeading>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch">
-          {skills.map((item, index) => (
-            <div key={item.name} className="btnn fadeLeft">
+          {skills.map((item) => (
+            <div key={item.name} className="btnn stagger-box">
               <StrechedButton
                 name={item.name}
                 icons={item.icons}

@@ -95,11 +95,11 @@ body {
 
 .glass-card {
   background-color: var(--color-card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-card-border);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .glass-card-hover:hover {
@@ -107,6 +107,17 @@ body {
   border-color: var(--color-card-border-hover);
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5);
   transform: translateY(-4px) scale(1.02);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-card,
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-xl {
+    background-color: rgba(2, 6, 23, 0.84);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.65);
+  }
 }
 
 .btn {
@@ -131,7 +142,7 @@ body {
   .stagger-box {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
   }
 
   .show-box {
@@ -141,81 +152,69 @@ body {
 
   .btnn {
   transition:
-    transform .8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
-    opacity .8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+    transform .8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity .8s cubic-bezier(0.22, 1, 0.36, 1),
+    scale .8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, opacity;
 }
 
-.fadeLeft {
+/* .fadeOut,
+.fadeIn {
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    scale 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+} */
+
+/* .fadeOut {
   opacity: 0;
-  transform: translateX(-60px);
+  transform: translateY(-60px) scale(0.5);
 }
 
 .fadeIn {
   opacity: 1;
-  transform: translateX(0);
-}
+  transform: translateY(0) scale(1);
+} */
 
-.fadeRight {
+/* .fadeRight {
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateY(60px);
   transition:
     opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
     transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
-}
+} */
 
 .projectCards{
   transition:
-    opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
-    transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    scale .8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform , opacity;
 }
 
 .dataSlider{
   transition:
-    opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
-    transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
 }
 
 .letContactClass{
   transition:
-    opacity 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963),
-    transform 0.8s cubic-bezier(0.918, 0.033, 0.101, 0.963);
+    opacity 2s ;
+    will-change: opacity;
 }
 
 .container{
     display:inline-block;
 }
 
-.typing{
-    width:0;
-    overflow:hidden;
-    white-space:nowrap;
-
-    border-right:3px solid white;
-
-    animation:
-    typing 3s steps(18) forwards,
-    cursor .7s step-end infinite;
+.notShow{
+  opacity: 0;
 }
 
-@keyframes typing{
-
-    from{
-        width:0;
-    }
-
-    to{
-        width:100%;
-    }
-
-}
-
-@keyframes cursor{
-
-    50%{
-        border-color:transparent;
-    }
-
+.show{
+  opacity: 1;
 }
 
 }

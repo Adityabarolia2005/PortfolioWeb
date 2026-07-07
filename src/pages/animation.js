@@ -1,60 +1,28 @@
-// import { easeIn, keyframes } from "framer-motion";
+export function setupFadeOnScroll(selector, options = {}) {
+  const { threshold = 0.3, rootMargin = "0px 0px -3% 0px" } = options;
+  const elements = document.querySelectorAll(selector);
 
-// export const fadeInAnimation = {
-//   hidden: { opacity: 0 , x:-50},
-//   visible: {
-//     opacity: 1,
-//     x: 0,        
-//     transition: {
-//       duration: 0.5,
-//       easeIn: [0.22, 1, 0.36, 1],
-//     },
-//   },
-// };
+  if (!elements.length) {
+    return () => {};
+  }
 
-// export const staggeredParent = {
-//   hidden: {},
-//   visible: {
-//     transition: {
-//       staggerChildren: 0.2,
-//       delayChildren: 0.1,
-//     },
-//   },
-// };
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target;
 
-// export const staggeredChild = {
-//   hidden: { opacity: 0, translateY: "-50px" },
-//   visible: {
-//     opacity: 1,
-//     translateY: "0px",        // ✅ "0px" string
-//     transition: {
-//       type: "spring",
-//       stiffness: 70,          // ✅ sahi tha
-//       damping: 20,            // ✅ sahi tha
-//     },
-//   },
-// };
+        if (entry.isIntersecting) {
+          target.classList.remove("fadeOut");
+          target.classList.add("fadeIn");
+        }
+      });
+    },
+    { threshold, rootMargin }
+  );
 
-// export const navParent = {
-//   hidden: {},
-//   visible: {
-//     transition: {
-//       staggerChildren: 0.3,
-//       delayChildren: 0.1,
-//     },
-//   },
-// };
+  elements.forEach((element) => observer.observe(element));
 
-// export const navChild = {
-//   hidden: { opacity: 0, translateX: "-50px" },  
-//   visible: {
-//     opacity: 1,
-//     translateX: "0px",        
-//     transition: {
-//       type: "spring",
-//       stiffness: 70,          
-//       damping: 20,
-//     },
-//   },
-// };
+  return () => observer.disconnect();
+}
+
 

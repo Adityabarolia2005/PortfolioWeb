@@ -4,32 +4,18 @@ import Description from "../components/Description";
 import { FaLinkedin } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
+import { setupFadeOnScroll } from "./animation";
 
 function LetsConnect() {
   useEffect(() => {
-    const el = document.querySelector(".letContactClass");
-    if (!el) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting){
-          entry.target.classList.add("fadeIn");
-          entry.target.classList.remove("fadeLeft");
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    observer.observe(el);
-
-    return () => observer.disconnect();
+    return setupFadeOnScroll(".letContactClass", { threshold: 0.2 });
   }, []);
 
   return (
     <section id="contacts" className="w-full max-w-[1200px] mx-auto my-6 space-y-4 px-4 h-auto ">
 
       <PageHeading className="text-center ">Lets Connect</PageHeading>
-      <div className="flex flex-col  md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4 fadeLeft letContactClass">
+      <div className="flex flex-col  md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4 fadeOut letContactClass">
         <div className="flex-1 text-center md:text-left">
           <p className="text-3xl font-heading text-white  mb-3">
             Open to

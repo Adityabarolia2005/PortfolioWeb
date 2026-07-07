@@ -41,7 +41,7 @@ function Slider({ items = [] }) {
 
  return (
   <div className="w-full">
-    <div className="w-full bg-white/10 rounded-2xl shadow-md backdrop-blur-sm p-6 flex flex-col min-h-[600px] sm:min-h-[450px] lg:min-h-[380px]">
+    <div className="w-full border border-white/10 bg-white/[0.04] rounded-2xl shadow-md backdrop-blur-[16px] p-6 flex flex-col min-h-[600px] sm:min-h-[450px] lg:min-h-[380px]">
 
       {/* Relative wrapper — absolute children ke liye */}
       <div className="flex-1 relative overflow-hidden">
