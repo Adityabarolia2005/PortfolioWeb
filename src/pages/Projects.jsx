@@ -18,11 +18,11 @@ export default function Projects() {
       if (parent.isIntersecting) {
         const boxes = parentProjectRef.current.querySelectorAll('.stagger-box');
         boxes.forEach((box, index) => {
-          box.style.transitionDelay = `${index * 0.15}s`;
+          box.style.transitionDelay = `${index * 0.30}s`;
           box.classList.add('show-box');
         });
       }
-    }, { threshold: 0.2 });
+    }, { threshold: 0.3 });
 
     if (parentProjectRef.current) {
       observer.observe(parentProjectRef.current);
@@ -31,7 +31,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className='mt-6 w-full px-4 max-w-[1200px] mx-auto scroll-mt-[80px]' id='projects' ref={parentProjectRef}>
+    <section className='w-full px-4 max-w-[1200px] mx-auto scroll-mt-[80px]' id='projects' ref={parentProjectRef}>
       <div className='mb-6 m-auto w-auto text-center'>
         <PageHeading className='stagger-box'>Projects</PageHeading>
       </div>

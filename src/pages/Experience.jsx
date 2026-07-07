@@ -9,19 +9,22 @@ export default function Experience() {
     const observer = new IntersectionObserver(
       (entries) => {
         const parent = entries[0];
-        if (parent?.isIntersecting && parentExp.current) {
+        if (!parentExp.current) return;
+
+        if (parent?.isIntersecting) {
           parentExp.current.classList.remove("notShow");
           parentExp.current.classList.add("show");
           observer.unobserve(parentExp.current);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.4, rootMargin: "0px 0px -10% 0px" }
     );
 
     if (parentExp.current) observer.observe(parentExp.current);
 
     return () => observer.disconnect();
   }, []);
+
 
   const experienceData = [
 
@@ -80,13 +83,14 @@ export default function Experience() {
 
   return (
     <section
-      className="mt-8 flex flex-col max-w-[1200px] w-full mx-auto justify-center overflow-hidden px-4 scroll-mt-[80px] dataSlider notShow"
+      className="flex flex-col max-w-[1200px] w-full mx-auto justify-center overflow-hidden px-4 scroll-mt-[80px] "
       id="Experience"
-      ref={parentExp}
     >
-      <PageHeading className="text-center mb-6 px-4">Experience</PageHeading>
-      <div className="w-full ">
-        <Slider items={experienceData} />
+      <div className="dataSlider notShow" ref={parentExp}>
+        <PageHeading className="text-center mb-6 px-4">Experience</PageHeading>
+        <div className="w-full ">
+          <Slider items={experienceData} />
+        </div>
       </div>
     </section>
   )

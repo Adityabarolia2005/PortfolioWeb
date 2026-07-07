@@ -1,23 +1,45 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import PageHeading from "../components/PageHeading";
 import Description from "../components/Description";
 import { FaLinkedin } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
-import { setupFadeOnScroll } from "./animation";
 
 function LetsConnect() {
+  const parentLetContact = useRef(null);
+
   useEffect(() => {
-    return setupFadeOnScroll(".letContactClass", { threshold: 0.2 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const parent = entries[0];
+        if (!parentLetContact.current) return;
+
+        if (parent?.isIntersecting) {
+          parentLetContact.current.classList.remove("notShow");
+          parentLetContact.current.classList.add("show");
+          observer.unobserve(parentLetContact.current);
+        }
+      },
+      { threshold: 0.4, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    if (parentLetContact.current) observer.observe(parentLetContact.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="contacts" className="w-full max-w-[1200px] mx-auto my-6 space-y-4 px-4 h-auto ">
-
+    <section
+      id="contacts"
+      className="w-full max-w-[1200px] mx-auto mt-16 space-y-4 px-4 h-auto scroll-mt-[80px] mb-4"
+    >
       <PageHeading className="text-center ">Lets Connect</PageHeading>
-      <div className="flex flex-col  md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4 fadeOut letContactClass">
+      <div
+        className="flex flex-col md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4 notShow letContactClass"
+        ref={parentLetContact}
+      >
         <div className="flex-1 text-center md:text-left">
-          <p className="text-3xl font-heading text-white  mb-3">
+          <p className="text-3xl font-heading text-white mb-3">
             Open to
             <br />
             Opportunities
@@ -27,34 +49,42 @@ function LetsConnect() {
             have an interesting project or opportunity, feel free to reach out!
           </Description>
 
-          <div className="mt-6 flex  flex-row gap-4 justify-center">
-            <button className="sm: text-center w-[45%] rounded-md bg-sky-500 px-4 py-3 text-white font-btn font-semibold hover:bg-sky-400 transition cursor-pointer">
+          <div className="mt-6 flex flex-row gap-4 justify-center">
+            <button className="sm:text-center w-[45%] rounded-md bg-sky-500 px-4 py-3 text-white font-btn font-semibold hover:bg-sky-400 transition cursor-pointer">
               Email me
             </button>
-            <a download="AdityaBaroliaResume2.pdf" href="/AdityaBaroliaResume2.pdf" className="sm:text-center w-[45%] rounded-md bg-white/10 text-white px-4 py-3 font-btn font-semibold hover:text-black transition cursor-pointer">
+            <a
+              download="AdityaBaroliaResume2.pdf"
+              href="/AdityaBaroliaResume2.pdf"
+              className="sm:text-center w-[45%] rounded-md bg-white/10 text-white px-4 py-3 font-btn font-semibold hover:text-black transition cursor-pointer"
+            >
               Download Resume
             </a>
           </div>
         </div>
+
         <div className="flex-1 flex items-center justify-center md:justify-end gap-4">
           <a
             href="mailto:adityabarolia@gmail.com"
             target="_blank"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400  hover:scale-105 cursor-pointer"
+            rel="noopener noreferrer"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400 hover:scale-105 cursor-pointer"
           >
             <MdOutlineMail />
           </a>
           <a
             href="https://www.linkedin.com/in/aditya-barolia-22bb12294/"
             target="_blank"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400  hover:scale-105 cursor-pointer"
+            rel="noopener noreferrer"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400 hover:scale-105 cursor-pointer"
           >
             <FaLinkedin />
           </a>
           <a
             href="https://github.com/Adityabarolia2005"
             target="_blank"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400  hover:scale-105 cursor-pointer"
+            rel="noopener noreferrer"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400 hover:scale-105 cursor-pointer"
           >
             <FaGithub />
           </a>

@@ -1,28 +1,28 @@
-export function setupFadeOnScroll(selector, options = {}) {
-  const { threshold = 0.3, rootMargin = "0px 0px -3% 0px" } = options;
-  const elements = document.querySelectorAll(selector);
+// export function setupFadeOnScroll(selector, options = {}) {
+//   const { threshold = 0.3, rootMargin = "0px 0px -3% 0px" } = options;
+//   const elements = document.querySelectorAll(selector);
 
-  if (!elements.length) {
-    return () => {};
-  }
+//   if (!elements.length) {
+//     return () => {};
+//   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const target = entry.target;
+//   const observer = new IntersectionObserver(
+//     (entries) => {
+//       entries.forEach((entry) => {
+//         const target = entry.target;
 
-        if (entry.isIntersecting) {
-          target.classList.remove("fadeOut");
-          target.classList.add("fadeIn");
-        }
-      });
-    },
-    { threshold, rootMargin }
-  );
+//         if (entry.isIntersecting) {
+//           target.classList.remove("fadeOut");
+//           target.classList.add("fadeIn");
+//         }
+//       });
+//     },
+//     { threshold, rootMargin }
+//   );
 
-  elements.forEach((element) => observer.observe(element));
+//   elements.forEach((element) => observer.observe(element));
 
-  return () => observer.disconnect();
-}
+//   return () => observer.disconnect();
+// }
 
 

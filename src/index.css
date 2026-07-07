@@ -43,6 +43,9 @@
   --breakpoint-hero:769px;
   --breakdownpoint-slider:542px;
   --breakpoint-hero-full-screen:768px;
+
+  --sectionGap:24;
+  
 }
 
 body {
@@ -195,13 +198,13 @@ body {
 
 .dataSlider{
   transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity;
+    opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1) ;
+    will-change: ease;
 }
 
 .letContactClass{
   transition:
-    opacity 2s ;
+    opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1) ;
     will-change: opacity;
 }
 
@@ -216,5 +219,20 @@ body {
 .show{
   opacity: 1;
 }
+
+.stagger-box {
+  opacity: 0;
+  transform: translateY(40px) scale(0.92);
+  transition: 
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.stagger-box.show-box {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 
 }

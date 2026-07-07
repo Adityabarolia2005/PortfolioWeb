@@ -46,7 +46,7 @@ export default function Nav() {
               width={56}
               height={56}
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
               className="block w-[56px] h-[56px] object-contain"
             />
           </a>
@@ -68,7 +68,7 @@ export default function Nav() {
               width={56}
               height={56}
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
               className="block w-[56px] h-[56px] object-contain"
             />
           </a>

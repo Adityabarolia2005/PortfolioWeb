@@ -15,15 +15,19 @@ function App() {
   // if (showSplash) return <SplashScreen onFinish={() => setSplash(false)} />
 
   return (
-    <div className="w-full overflow-x-hidden" id="Home">
+    <div className="w-full overflow-x-hidden flex flex-col " id="Home">
       <Suspense fallback={<PageLoader/>}>
       <ScrollProgress />
       <Nav />
-      <HeroCard />
-      <Skills/>
-      <Projects/>
-      <Experience/>
-      <LetsConnect/>
+      
+      
+      <div className="space-y-24">
+        <HeroCard />
+        <Skills/>
+        <Projects/>
+        <Experience/>
+        <LetsConnect/>
+      </div>
       </Suspense>
     </div>
   );

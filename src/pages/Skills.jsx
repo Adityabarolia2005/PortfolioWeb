@@ -64,7 +64,7 @@ export default function Skills() {
         if (parent.isIntersecting) {
           const boxes = parentSkillRef.current.querySelectorAll(".stagger-box");
           boxes.forEach((box, index) => {
-            box.style.transitionDelay = `${index * 0.12}s`;
+            box.style.transitionDelay = `${index * 0.30}s`;
             box.classList.add("show-box");
           });
           observer.unobserve(parentSkillRef.current);
@@ -80,25 +80,27 @@ export default function Skills() {
   }, []);
 
   return (
-    <section id="skills" className="scroll-mt-[80px]">
-      <div
-        className="md:mt-8 max-w-[1200px] w-full mx-auto h-auto px-4"
-        ref={parentSkillRef}
-      >
-        <PageHeading className="text-center stagger-box">Skills</PageHeading>
+    
+  <section id="skills" className="scroll-mt-[80px] md:mt-16">
+    <div
+      className="max-w-[1200px] w-full mx-auto h-auto px-4"
+      ref={parentSkillRef}
+    >
+      <PageHeading className="text-center stagger-box">Skills</PageHeading>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch">
-          {skills.map((item) => (
-            <div key={item.name} className="btnn stagger-box">
-              <StrechedButton
-                name={item.name}
-                icons={item.icons}
-                des={item.des}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch">
+        {skills.map((item) => (
+          <div key={item.name} className="btnn stagger-box">
+            <StrechedButton
+              name={item.name}
+              icons={item.icons}
+              des={item.des}
+            />
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
+
   );
 }
