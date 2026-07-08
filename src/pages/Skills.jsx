@@ -88,7 +88,7 @@ export default function Skills() {
     >
       <PageHeading className="text-center stagger-box">Skills</PageHeading>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 justify-items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 justify-items-stretch">
         {skills.map((item) => (
           <div key={item.name} className="btnn stagger-box">
             <StrechedButton

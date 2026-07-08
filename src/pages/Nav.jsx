@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
-import { AnimatePresence, motion } from "framer-motion";
+import { LazyMotion, domAnimation, m , AnimatePresence} from "framer-motion";
 
 const nav2 = [
   { name: "Skills", to: "#skills" },
@@ -41,13 +41,13 @@ export default function Nav() {
         <div className="hidden md:flex items-center justify-around w-full gap-8">
           <a href="#home" className="flex items-center justify-center rounded-md overflow-hidden shrink-0 w-[56px] h-[56px]">
             <img
-              src="/Image/Logo5.avif"
+              src="\Image\transparent-imageFinal.webp"
               alt="Logo"
-              width={56}
-              height={56}
+              width="56px"
+              height="56px"
               loading="eager"
               fetchPriority="high"
-              className="block w-[56px] h-[56px] object-contain"
+              className="block  object-contain"
             />
           </a>
           <div className="flex gap-3">
@@ -63,13 +63,13 @@ export default function Nav() {
         <div className="flex items-center gap-3 md:hidden w-full justify-between">
           <a href="#home" className="flex items-center justify-center rounded-md overflow-hidden shrink-0 w-[56px] h-[56px]">
             <img
-              src="/Image/Logo5.avif"
+              src="\Image\transparent-imageFinal.webp"
               alt="Logo"
-              width={56}
-              height={56}
+              width="56px"
+              height="56px"
               loading="eager"
               fetchPriority="high"
-              className="block w-[56px] h-[56px] object-contain"
+              className="block  object-contain"
             />
           </a>
 
@@ -80,6 +80,7 @@ export default function Nav() {
               setIsOpen((prev) => !prev);
               e.stopPropagation();
             }}
+            aria-label="Navigation dropdown button"
             className="text-white text-2xl focus:outline-none cursor-pointer  hover:scale-105 transition-all duration-250 ease-in-out relative w-8 h-8 flex items-center justify-center"
           >
             {/* Hamburger */}
@@ -107,10 +108,10 @@ export default function Nav() {
       </div>
 
       {/* ── Mobile Dropdown ── */}
-
-      <AnimatePresence mode="wait">
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence mode="wait">
         {isOpen && (
-          <motion.div
+          <m.div
             key="mobile-nav"
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -129,9 +130,10 @@ export default function Nav() {
                 {item.name}
               </a>
             ))}
-          </motion.div>
+          </m.div>
         )}
-      </AnimatePresence>
+        </AnimatePresence>
+      </LazyMotion>
     </nav>
   );
 }

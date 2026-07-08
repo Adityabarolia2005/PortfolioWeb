@@ -87,7 +87,7 @@ export default function Experience() {
       id="Experience"
     >
       <div className="dataSlider notShow" ref={parentExp}>
-        <PageHeading className="text-center mb-6 px-4">Experience</PageHeading>
+        <PageHeading className="text-center mb-8 px-4">Experience</PageHeading>
         <div className="w-full ">
           <Slider items={experienceData} />
         </div>

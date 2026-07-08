@@ -8,11 +8,14 @@ import { FaGithub } from "react-icons/fa";
 function LetsConnect() {
   const parentLetContact = useRef(null);
 
+  // TEMP FIX: disable observer logic so app always loads.
+  // Animation can be re-enabled once runtime errors are confirmed.
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const parent = entries[0];
         if (!parentLetContact.current) return;
+
 
         if (parent?.isIntersecting) {
           parentLetContact.current.classList.remove("notShow");
@@ -25,15 +28,17 @@ function LetsConnect() {
 
     if (parentLetContact.current) observer.observe(parentLetContact.current);
 
+
     return () => observer.disconnect();
   }, []);
+
 
   return (
     <section
       id="contacts"
       className="w-full max-w-[1200px] mx-auto mt-16 space-y-4 px-4 h-auto scroll-mt-[80px] mb-4"
     >
-      <PageHeading className="text-center ">Lets Connect</PageHeading>
+      <PageHeading className="text-center  ">Lets Connect</PageHeading>
       <div
         className="flex flex-col md:flex-row w-full my-mar p-6 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-2xl shadow-slate-900/20 space-y-4 notShow letContactClass"
         ref={parentLetContact}
@@ -67,6 +72,7 @@ function LetsConnect() {
           <a
             href="mailto:adityabarolia@gmail.com"
             target="_blank"
+            aria-label="Mail me link"
             rel="noopener noreferrer"
             className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400 hover:scale-105 cursor-pointer"
           >
@@ -75,6 +81,7 @@ function LetsConnect() {
           <a
             href="https://www.linkedin.com/in/aditya-barolia-22bb12294/"
             target="_blank"
+            aria-label="Get to my linkedin link"
             rel="noopener noreferrer"
             className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400 hover:scale-105 cursor-pointer"
           >
@@ -84,6 +91,7 @@ function LetsConnect() {
             href="https://github.com/Adityabarolia2005"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Get to my github link"
             className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white text-2xl hover:bg-white/20 hover:border-white/30 hover:text-sky-400 hover:scale-105 cursor-pointer"
           >
             <FaGithub />

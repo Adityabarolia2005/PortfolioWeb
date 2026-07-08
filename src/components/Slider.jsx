@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import Description from './Description';
 
 // Direction ke hisaab se variants
@@ -45,9 +45,9 @@ function Slider({ items = [] }) {
 
       {/* Relative wrapper — absolute children ke liye */}
       <div className="flex-1 relative overflow-hidden">
-
+      <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
+          <m.div
             key={current}
             custom={direction}
             variants={slideVariants}
@@ -84,9 +84,9 @@ function Slider({ items = [] }) {
             <div className="text-gray-200 text-sm leading-relaxed break-words">
               <Description>{item.desc}</Description>
             </div>
-          </motion.div>
+          </m.div>
         </AnimatePresence>
-
+      </LazyMotion>
       </div>
 
       {/* Dots — absolute wrapper ke bahar */}
@@ -94,10 +94,11 @@ function Slider({ items = [] }) {
         {items.map((_, index) => (
           <button
             key={index}
+            aria-label={`Go to slide ${index + 1}`}
             onClick={() => goTo(index)}
             className={`h-2 rounded-full transition-all duration-300 ${
               index === current
-                ? 'w-6 bg-blue-500'
+                ? 'w-6 bg-blue-500' 
                 : 'w-2 bg-gray-400/40 hover:bg-gray-300'
             }`}
           />
