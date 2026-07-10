@@ -8,8 +8,6 @@ import { FaGithub } from "react-icons/fa";
 function LetsConnect() {
   const parentLetContact = useRef(null);
 
-  // TEMP FIX: disable observer logic so app always loads.
-  // Animation can be re-enabled once runtime errors are confirmed.
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

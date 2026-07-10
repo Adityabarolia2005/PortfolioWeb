@@ -69,7 +69,7 @@ function HeroCard() {
 
       <div className='flex-1 flex justify-center items-start mt-8 md:mt-0'>
         <img
-          src=''
+          src='\Image\Profile Photo.png'
           alt='Profile'
           className='stagger-box w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full border-4 border-primary object-cover shadow-2xl shadow-primary/20'
         />
